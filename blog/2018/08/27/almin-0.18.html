@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Almin v0.18 – React Native compatible · Almin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="[almin@0.18.0](https://github.com/almin/almin/releases/tag/almin%400.18.0) is released 🎉"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Almin v0.18 – React Native compatible · Almin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/blog/2018/08/27/almin-0.18.html"/><meta property="og:description" content="[almin@0.18.0](https://github.com/almin/almin/releases/tag/almin%400.18.0) is released 🎉"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/api.html" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recent Posts</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/blog/2018/08/27/almin-0.18.html">Almin v0.18 – React Native compatible</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/06/09/almin-0.17.html">Almin v0.17 – Support `context.useCase#execute` typing and new React Context</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/12/10/new-website.html">New Website</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2018/08/27/almin-0.18.html">Almin v0.18 – React Native compatible</a></h1><p class="post-meta">August 27, 2018</p><div class="authorBlock"><p class="post-authorName"><a href="https://github.com/azu" target="_blank" rel="noreferrer noopener">azu</a></p></div></header><div><span><p><a href="https://github.com/almin/almin/releases/tag/almin%400.18.0">almin@0.18.0</a> is released 🎉</p>
+<h2><a class="anchor" aria-hidden="true" id="summary"></a><a href="#summary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Summary</h2>
+<ul>
+<li>Deprecate <code>context.useCase#executor</code>
+<ul>
+<li>Use <code>context.useCase#execute</code> instead of it</li>
+<li><a href="https://github.com/almin/migration-tools">almin/migration-tools</a> help to migrate it</li>
+</ul></li>
+<li>Work almin in React Native without installing <code>events</code> module
+<ul>
+<li>Drop to use <code>events</code> of Node.js Core API</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="🥇-migration"></a><a href="#🥇-migration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>🥇 Migration</h2>
+<p><code>almin-migration-tools</code> support migration from 0.17.x to 0.18.x.</p>
+<pre><code class="hljs">npx @almin/migration-tools
+</code></pre>
+<p>This(0.17.x → 0.18.x) migration also supports TypeScript.</p>
+<pre><code class="hljs">npx @almin/migration-tools &quot;src/**/*.{ts,tsx}&quot;
+</code></pre>
+<ul>
+<li><a href="https://github.com/almin/migration-tools">almin/migration-tools: Migration scripts for Almin.</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="-breaking-change"></a><a href="#-breaking-change" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>🔥 Breaking Change</h2>
+<p><strong>TypeScript user</strong>:</p>
+<p>If you use Almin with TypeScript, please upgrade to TypeScript 3.0.
+Almin 0.18 require TypeScript 3.0.</p>
+<p>If you seen following compile error, you should upgrade to TypeScript 3.0.</p>
+<pre><code class="hljs">Type '{}' is not assignable to type 'IntrinsicAttributes &amp; IntrinsicClassAttributes&lt;{ state: StateMap&lt;{ subscriptionList: any; subscri...'.
+  Type '{}' is not assignable to type 'Readonly&lt;Pick&lt;StateMap&lt;{ subscriptionList: any; subscriptionContents: any; appHeader: any; appPre...'.
+</code></pre>
+<p><strong>JavaScript user</strong>:</p>
+<p>No breaking change.</p>
+<h2><a class="anchor" aria-hidden="true" id="-features"></a><a href="#-features" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>⭐ Features</h2>
+<h3><a class="anchor" aria-hidden="true" id="make-execute-type-complete-355httpsgithubcomalminalminissues355-107httpsgithubcomalminalminissues107"></a><a href="#make-execute-type-complete-355httpsgithubcomalminalminissues355-107httpsgithubcomalminalminissues107" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make <code>execute</code> type complete <a href="https://github.com/almin/almin/issues/355">#355</a> <a href="https://github.com/almin/almin/issues/107">#107</a></h3>
+<p><strong>For TypeScript user</strong></p>
+<p><code>UseCaseExecutor#executor</code> has been introduced as a workaround for TypeScript <a href="https://github.com/almin/almin/issues/107">#107</a>.</p>
+<p>In Almin 0.18+, <code>UseCaseExecutor#execute</code> work with TypeScript <a href="https://github.com/almin/almin/issues/355">#355</a></p>
+<blockquote>
+<p>📝 Require TypeScript 3.0+</p>
+</blockquote>
+<p>So, you should use <code>UseCaseExecutor#execute</code> instead of <code>UseCaseExecutor#executor</code>.</p>
+<p>Before:  <code>executor()</code></p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { UseCase, Context } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">class</span> MyUseCaseA <span class="hljs-keyword">extends</span> UseCase {
+    execute(_a: <span class="hljs-built_in">string</span>) {}
+}
+<span class="hljs-keyword">const</span> context = <span class="hljs-keyword">new</span> Context({
+    store: createStore({ name: <span class="hljs-string">"test"</span> })
+});
+
+<span class="hljs-comment">// executor</span>
+context.useCase(<span class="hljs-keyword">new</span> MyUseCaseA()).executor(<span class="hljs-function"><span class="hljs-params">useCase</span> =&gt;</span> useCase.execute(<span class="hljs-string">"A"</span>)); 
+</code></pre>
+<p>After: <code>execute()</code></p>
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { UseCase, Context } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">class</span> MyUseCaseA <span class="hljs-keyword">extends</span> UseCase {
+    execute(_a: <span class="hljs-built_in">string</span>) {}
+}
+<span class="hljs-keyword">const</span> context = <span class="hljs-keyword">new</span> Context({
+    store: createStore({ name: <span class="hljs-string">"test"</span> })
+});
+
+<span class="hljs-comment">//execute</span>
+context.useCase(<span class="hljs-keyword">new</span> MyUseCaseA()).execute(<span class="hljs-string">"A"</span>);
+</code></pre>
+<p>These are same meaning without syntax.</p>
+<h3><a class="anchor" aria-hidden="true" id="deprecate-executor-356httpsgithubcomalminalminissues356"></a><a href="#deprecate-executor-356httpsgithubcomalminalminissues356" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deprecate <code>executor()</code> <a href="https://github.com/almin/almin/issues/356">#356</a></h3>
+<p>You can migrate from <code>executor</code> to <code>execute</code> by migration tools</p>
+<pre><code class="hljs">npx @almin/migration-tools &quot;src/**/*.{js,ts,tsx}&quot; --script &quot;executor-to-execute&quot;
+</code></pre>
+<ul>
+<li><a href="https://github.com/almin/migration-tools">almin/migration-tools: Migration scripts for Almin.</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="️-refactoring"></a><a href="#️-refactoring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>♻️ Refactoring</h2>
+<h3><a class="anchor" aria-hidden="true" id="drop-to-use-events-module-352httpsgithubcomalminalminissues352"></a><a href="#drop-to-use-events-module-352httpsgithubcomalminalminissues352" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Drop to use <code>events</code> module <a href="https://github.com/almin/almin/issues/352">#352</a></h3>
+<p>Almin 0.18 drop to use Node.js's <code>events</code> module.</p>
+<p>Previously, Almin use <code>events</code> module of Node.js Core API.
+The <code>events</code> module is polyfill-ed by bundler like webpack or browserify.
+But, React Native's bundler does not bundle it.</p>
+<p>As a result, almin 0.18 improves to</p>
+<ul>
+<li>support React Native compatible</li>
+<li>reduce file size</li>
+</ul>
+<hr>
+<p>We will work on Almin 1.0.0 within a few month.
+I(<a href="https://github.com/azu">@azu</a>) think that last blocker of 1.0.0 is <code>Store</code> design.</p>
+<ul>
+<li><a href="https://github.com/almin/almin/issues/312">Almin: Store#receivePayload design · Issue #312 · almin/almin</a></li>
+</ul>
+<p>Also, We welcome to your contribution.
+If you want to contribute to almin, please check <a href="https://github.com/almin/almin/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc+label%3A%22good+first+issue%22">good first issue</a>.</p>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog/">Recent Posts</a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

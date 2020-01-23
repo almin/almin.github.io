@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Almin · Flux/CQRS patterns for JavaScript application.</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Flux/CQRS patterns for JavaScript application."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Almin · Flux/CQRS patterns for JavaScript application."/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/index.html"/><meta property="og:description" content="Flux/CQRS patterns for JavaScript application."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class=""><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class=""><a href="/docs/en/api.html" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div><div class="mainContainer"><div class="homeContainer"><script>
+function redirectURL(path) {
+    const REDIRECT = {
+        "introduction/components": "/docs/en/components.html",
+        "introduction/hello-world": "/docs/en/hello-world.html",
+        "tips/strict-mode": "/docs/en/strict-mode.html",
+        "tips/logging": "/docs/en/logging.html",
+        "tips/performance-profile": "/docs/en/performance-profile.html",
+        "tips/nesting-usecase": "/docs/en/nesting-usecase.html",
+        "tips/usecase-lifecycle": "/docs/en/usecase-lifecycle.html",
+        "usecase-is-already-released": "/docs/en/warning-usecase-is-already-released.html",
+        "api/Dispatcher": "/docs/en/context-api.html",
+        "api/DispatcherPayloadMeta": "/docs/en/dispatcherpayloadmeta-api.html",
+        "api/Store": "/docs/en/store-api.html",
+        "api/StoreGroup": "/docs/en/storegroup-api.html",
+        "api/UseCase": "/docs/en/usecase-api.html",
+        "api/Context": "/docs/en/context-api.html",
+        "api/UseCaseContext": "/docs/en/usecasecontext-api.html",
+        "api/UseCaseExecutor": "/docs/en/usecaseexecutor-api.html",
+        "api/LifeCycleEventHub": "/docs/en/lifecycleeventhub-api.html",
+        GLOSSARY: "/docs/en/glossary"
+    };
+    var OLD_PATH_LIST = Object.keys(REDIRECT);
+    for (var i = 0; i < OLD_PATH_LIST.length; i++) {
+        const OLD_PATH = OLD_PATH_LIST[i];
+        const NEW_URL = REDIRECT[OLD_PATH];
+        if (path.indexOf(OLD_PATH) !== -1) {
+            return NEW_URL;
+        }
+    }
+    return undefined;
+}
+
+const newURL =
+    typeof window !== "undefined" && typeof window.location !== "undefined"
+        ? redirectURL(window.location.pathname)
+        : undefined;
+if(newURL){
+    location.replace(newURL);
+}
+</script><div class="homeSplashFade"><div class="wrapper homeWrapper"><div class="inner"><h2 class="projectTitle">404 Not Found<small>This page is not found</small></h2><div class="section promoSection"><div class="promoRow"><div class="pluginRowBlock"><div class="pluginWrapper buttonWrapper"><a class="button" href="/" target="_self">Go to Top</a></div></div></div></div></div></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

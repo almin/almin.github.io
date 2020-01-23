@@ -1,0 +1,483 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Counter Tutorial · Almin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="In this guide, we’ll walk through the process of creating a simple Counter app."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Counter Tutorial · Almin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/index.html"/><meta property="og:description" content="In this guide, we’ll walk through the process of creating a simple Counter app."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/api.html" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorial</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/components.html">Components of Almin</a></li><li class="navListItem"><a class="navItem" href="/docs/en/principles.html">Principles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/hello-world.html">Hello World</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/example-projects.html">Example projects</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/tutorial-counter.html">Counter Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-todo-app.html">Todo App tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/logging.html">Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/nesting-usecase.html">Nesting UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/performance-profile.html">Performance profile</a></li><li class="navListItem"><a class="navItem" href="/docs/en/strict-mode.html">Strict mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-lifecycle.html">UseCase LifeCycle</a></li><li class="navListItem"><a class="navItem" href="/docs/en/typescript.html">TypeScript</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Troubleshooting</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/warning-usecase-is-already-released.html">UseCase is already released</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Appendix</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/glossary.html">GLOSSARY</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/api.html">API Index</a></li><li class="navListItem"><a class="navItem" href="/docs/en/context-api.html">Context</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcher-api.html">Dispatcher</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcherpayloadmeta-api.html">DispatcherPayloadMeta</a></li><li class="navListItem"><a class="navItem" href="/docs/en/lifecycleeventhub-api.html">LifeCycleEventHub</a></li><li class="navListItem"><a class="navItem" href="/docs/en/store-api.html">Store</a></li><li class="navListItem"><a class="navItem" href="/docs/en/storegroup-api.html">StoreGroup</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-api.html">UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecasecontext-api.html">UseCaseContext</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecaseexecutor-api.html">UseCaseExecutor</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/almin/almin/edit/master/docs/TutorialCounter.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Counter Tutorial</h1></header><article><div><span><p>In this guide, we’ll walk through the process of creating a simple Counter app.</p>
+<p><img src="/docs/assets/counter.png" alt="counter"></p>
+<h2><a class="anchor" aria-hidden="true" id="source-code"></a><a href="#source-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source Code</h2>
+<p>You can get the source code for counter app from here.</p>
+<ul>
+<li><a href="https://github.com/almin/almin/tree/master/examples/counter">https://github.com/almin/almin/tree/master/examples/counter</a></li>
+</ul>
+<pre><code class="hljs css language-sh">git <span class="hljs-built_in">clone</span> https://github.com/almin/almin.git
+
+<span class="hljs-built_in">cd</span> almin/examples/counter
+npm install
+npm start
+<span class="hljs-comment"># manually open</span>
+open http://localhost:8080/
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="the-purpose-of-counter"></a><a href="#the-purpose-of-counter" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The purpose of counter</h2>
+<ol>
+<li>Press a button and count up!</li>
+</ol>
+<p>End.</p>
+<h3><a class="anchor" aria-hidden="true" id="-notes-recommendation"></a><a href="#-notes-recommendation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>📝 Notes: Recommendation</h3>
+<p>1 UseCase = 1 file</p>
+<h2><a class="anchor" aria-hidden="true" id="usecase"></a><a href="#usecase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UseCase</h2>
+<p>We start implementing the UseCase.</p>
+<blockquote>
+<ol>
+<li>Press a button and count up!</li>
+</ol>
+</blockquote>
+<p>Start to create <code>IncrementalCounterUseCase</code> class.</p>
+<pre><code class="hljs css language-js"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> {UseCase} <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IncrementalCounterUseCase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UseCase</span> </span>{
+    <span class="hljs-comment">// UseCase should implement #execute method</span>
+    execute() {
+        <span class="hljs-comment">// Write the UseCase code</span>
+    }
+}
+</code></pre>
+<p>We want to update the <strong>counter app state</strong> when the <code>IncrementalCounterUseCase</code> is executed.</p>
+<p>Simply, put the <strong>counter app state</strong> to a <strong>Store</strong>.</p>
+<h2><a class="anchor" aria-hidden="true" id="store"></a><a href="#store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Store</h2>
+<p>Second, We create <code>CounterStore</code> class.</p>
+<pre><code class="hljs css language-js"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> {Store} <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CounterStore</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Store</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-comment">// receive event from UseCase, then update state</span>
+    }
+
+    <span class="hljs-comment">// return state object</span>
+    getState() {
+        <span class="hljs-keyword">return</span> {
+            <span class="hljs-attr">count</span>: <span class="hljs-number">0</span> 
+        }
+    }
+}
+</code></pre>
+<p>Almin's <code>Store</code> can receive the dispatched <em>event</em> from a UseCase.</p>
+<p>💭 Image:</p>
+<ol>
+<li><code>IncrementalCounterUseCase</code> dispatches &quot;increment&quot; event.</li>
+<li><code>CounterStore</code> receives the dispatched &quot;increment&quot; event and updates own state.</li>
+</ol>
+<p>This pattern is the same Flux architecture.</p>
+<p><img src="/docs/assets/flux-diagram-white-background.png" alt="flux-diagram-white-background"></p>
+<p>In flux:</p>
+<ol>
+<li>dispatch &quot;increment&quot; action via ActionCreator</li>
+<li>Store receives &quot;increment&quot; action and updates own state</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="usecase-dispatch---store"></a><a href="#usecase-dispatch---store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>UseCase</strong> dispatch -&gt; Store</h2>
+<p>Return to <code>IncrementalCounterUseCase</code> and add &quot;dispatch increment event&quot;</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { UseCase } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IncrementalCounterUseCase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UseCase</span> </span>{
+    <span class="hljs-comment">// IncrementalCounterUseCase dispatch "increment" ----&gt; Store</span>
+    <span class="hljs-comment">// UseCase should implement #execute method</span>
+    execute() {
+        <span class="hljs-keyword">this</span>.dispatch({
+            <span class="hljs-attr">type</span>: <span class="hljs-string">"increment"</span>
+        });
+    }
+}
+
+</code></pre>
+<p>A class inherited <code>UseCase</code> has <code>this.dispatch(payload)</code> method.</p>
+<p><code>payload</code> object must have <code>type</code> property.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"type"</span>
+}
+</code></pre>
+<p>The above is a minimal payload object.</p>
+<p>Of course, you can include other properties to the payload.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"show"</span>,
+    <span class="hljs-attr">"value"</span>: <span class="hljs-string">"value"</span>
+}
+</code></pre>
+<p>So, <code>IncrementalCounterUseCase</code> dispatches the &quot;increment&quot; payload.</p>
+<h2><a class="anchor" aria-hidden="true" id="usecase---store-received"></a><a href="#usecase---store-received" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UseCase -&gt; <strong>Store</strong> received</h2>
+<p>Next, We want to add the feature that can receive the &quot;increment&quot; payload to <code>CounterStore</code>.</p>
+<p>A class inherited <code>Store</code> can implement <code>receivePayload</code> method.</p>
+<pre><code class="hljs css language-js"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { Store } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CounterStore</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Store</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-comment">// initial state</span>
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>
+        };
+    }
+
+    <span class="hljs-comment">// receive event from UseCase, then update state</span>
+    receivePayload(payload) {
+        <span class="hljs-keyword">if</span>(payload.type === <span class="hljs-string">"increment"</span>){
+            <span class="hljs-keyword">this</span>.state.count++;
+        }
+    }
+
+    <span class="hljs-comment">// return the state</span>
+    getState() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state;
+    }
+}
+</code></pre>
+<p>All that is updating <code>CounterStore</code>'s state!</p>
+<p>But, We can separate the <code>state</code> and <code>CounterStore</code> as files.
+It means that we can create <code>CounterState</code>.</p>
+<p><strong>Store</strong></p>
+<ul>
+<li>Observe dispatch events and update state
+<ul>
+<li>Write state: <code>receivePayload()</code></li>
+<li>Read state: <code>getState()</code></li>
+</ul></li>
+</ul>
+<p><strong>State</strong></p>
+<ul>
+<li>It is the state!</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="state"></a><a href="#state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>State</h2>
+<p>We have created <code>CounterState.js</code>.</p>
+<p><code>CounterState</code>s main purpose is</p>
+<ul>
+<li>receive &quot;payload&quot; and return state.</li>
+</ul>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/counter/src/store/CounterState.js"><code>counter/src/store/CounterState.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+
+<span class="hljs-comment">// reduce function</span>
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CounterState</span> </span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{Number}</span> <span class="hljs-variable">count</span></span>
+     */</span>
+    <span class="hljs-keyword">constructor</span>({ count }) {
+        <span class="hljs-keyword">this</span>.count = count;
+    }
+
+    reduce(payload) {
+        <span class="hljs-keyword">switch</span> (payload.type) {
+            <span class="hljs-comment">// Increment Counter</span>
+            <span class="hljs-keyword">case</span> <span class="hljs-string">"increment"</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> CounterState({
+                    <span class="hljs-attr">count</span>: <span class="hljs-keyword">this</span>.count + <span class="hljs-number">1</span>
+                });
+            <span class="hljs-keyword">default</span>:
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;
+        }
+    }
+}
+
+</code></pre>
+<p>You may have seen the pattern. So, It is <strong>reducer</strong> in the Redux.</p>
+<ul>
+<li><a href="https://redux.js.org/docs/basics/Reducers.html" title="Reducers | Redux">Reducers | Redux</a></li>
+<li><a href="https://facebook.github.io/flux/docs/flux-utils.html" title="Flux | Application Architecture for Building User Interfaces">Flux | Application Architecture for Building User Interfaces</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="store---state-newstate"></a><a href="#store---state-newstate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Store -&gt; State: NewState</h2>
+<p>Finally, we have added some code to <code>CounterStore</code></p>
+<ol>
+<li>Receive dispatched event, then update <code>CounterState</code></li>
+<li><code>CounterStore#getState</code> returns the instance of <code>CounterState</code></li>
+</ol>
+<p>A class inherited <code>Store</code> has <code>this.setState()</code> method that update own state if needed.</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/counter/src/store/CounterStore.js"><code>counter/src/store/CounterStore.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { Store } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> { CounterState } <span class="hljs-keyword">from</span> <span class="hljs-string">"./CounterState"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CounterStore</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Store</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-comment">// initial state</span>
+        <span class="hljs-keyword">this</span>.state = <span class="hljs-keyword">new</span> CounterState({
+            <span class="hljs-attr">count</span>: <span class="hljs-number">0</span>
+        });
+    }
+
+    <span class="hljs-comment">// receive event from UseCase, then update state</span>
+    receivePayload(payload) {
+        <span class="hljs-keyword">this</span>.setState(<span class="hljs-keyword">this</span>.state.reduce(payload));
+    }
+
+    <span class="hljs-comment">// return own state</span>
+    getState() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state;
+    }
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="-note-testing"></a><a href="#-note-testing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>📝 Note: Testing</h3>
+<p>We can test the above classes independently.</p>
+<ul>
+<li><a href="https://github.com/almin/almin/tree/master/examples/counter/test" title="almin/examples/counter/test at master · almin/almin">almin/examples/counter/test at master · almin/almin</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="view-integration"></a><a href="#view-integration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>View Integration</h2>
+<p>This example uses <a href="https://reactjs.org/" title="React">React</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="indexjs"></a><a href="#indexjs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>index.js</h3>
+<p>We will create <code>index.js</code> that is the root of the application.</p>
+<p>First, we create a <code>Context</code> object that is communicator between Store and UseCase.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> {Context, Dispatcher} <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> {CounterStore} <span class="hljs-keyword">from</span> <span class="hljs-string">"./store/CounterStore"</span>;
+<span class="hljs-comment">// a single dispatcher</span>
+<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> Dispatcher();
+<span class="hljs-comment">// initialize store</span>
+<span class="hljs-keyword">const</span> counterStore = <span class="hljs-keyword">new</span> CounterStore();
+<span class="hljs-comment">// create store group</span>
+<span class="hljs-keyword">const</span> storeGroup = <span class="hljs-keyword">new</span> StoreGroup({
+    <span class="hljs-comment">// stateName : store</span>
+    <span class="hljs-string">"counter"</span>: counterStore
+});
+<span class="hljs-comment">// create context</span>
+<span class="hljs-keyword">const</span> appContext = <span class="hljs-keyword">new</span> Context({
+    dispatcher,
+    <span class="hljs-attr">store</span>: storeGroup
+});
+</code></pre>
+<p>Second, We will pass the <code>appContext</code> to <code>App</code> component and render to DOM.</p>
+<pre><code class="hljs css language-jsx">ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> <span class="hljs-attr">appContext</span>=<span class="hljs-string">{appContext}</span> /&gt;</span>, document.getElementById("js-app"))
+</span></code></pre>
+<p>The following is the full code of <code>index.js</code>:</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/counter/src/index.js"><code>counter/src/index.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">"react-dom"</span>;
+<span class="hljs-keyword">import</span> { Context, Dispatcher, StoreGroup } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">"./component/App"</span>;
+<span class="hljs-keyword">import</span> { CounterStore } <span class="hljs-keyword">from</span> <span class="hljs-string">"./store/CounterStore"</span>;
+<span class="hljs-comment">// a single dispatcher</span>
+<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> Dispatcher();
+<span class="hljs-comment">// a single store</span>
+<span class="hljs-keyword">const</span> counterStore = <span class="hljs-keyword">new</span> CounterStore();
+<span class="hljs-comment">// create store group</span>
+<span class="hljs-keyword">const</span> storeGroup = <span class="hljs-keyword">new</span> StoreGroup({
+    <span class="hljs-comment">// stateName : store</span>
+    <span class="hljs-attr">counter</span>: counterStore
+});
+<span class="hljs-comment">// create context</span>
+<span class="hljs-keyword">const</span> appContext = <span class="hljs-keyword">new</span> Context({
+    dispatcher,
+    <span class="hljs-attr">store</span>: storeGroup,
+    <span class="hljs-attr">options</span>: {
+        <span class="hljs-comment">// Optional: https://almin.js.org/docs/tips/strict-mode.html</span>
+        <span class="hljs-attr">strict</span>: <span class="hljs-literal">true</span>
+    }
+});
+ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> <span class="hljs-attr">appContext</span>=<span class="hljs-string">{appContext}</span> /&gt;</span>, document.getElementById("js-app"));
+
+</span></code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="appjs"></a><a href="#appjs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>App.js</h3>
+<p>We will create <code>App.js</code> that is the root of component aka. Container component.</p>
+<p>It receives <code>appContext</code> from <code>index.js</code> and uses it.</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/counter/src/component/App.js"><code>counter/src/component/App.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"prop-types"</span>;
+<span class="hljs-keyword">import</span> { Context } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> { CounterState } <span class="hljs-keyword">from</span> <span class="hljs-string">"../store/CounterState"</span>;
+<span class="hljs-keyword">import</span> { Counter } <span class="hljs-keyword">from</span> <span class="hljs-string">"./Counter"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
+        <span class="hljs-comment">// set initial state</span>
+        <span class="hljs-keyword">this</span>.state = props.appContext.getState();
+    }
+    componentDidMount() {
+        <span class="hljs-keyword">const</span> appContext = <span class="hljs-keyword">this</span>.props.appContext;
+        <span class="hljs-comment">// update component's state with store's state when store is changed</span>
+        <span class="hljs-keyword">const</span> onChangeHandler = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-keyword">this</span>.setState(appContext.getState());
+        };
+        <span class="hljs-keyword">this</span>.unSubscribe = appContext.onChange(onChangeHandler);
+    }
+
+    componentWillUnmount() {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">this</span>.unSubscribe === <span class="hljs-string">"function"</span>) {
+            <span class="hljs-keyword">this</span>.unSubscribe();
+        }
+    }
+
+    render() {
+        <span class="hljs-comment">/**
+         * Where is "CounterState" come from?
+         * It is a `key` of StoreGroup.
+         *
+         * ```
+         * const storeGroup = new StoreGroup({
+         *   "counter": counterStore
+         * });
+         * ```
+         * <span class="hljs-doctag">@type <span class="hljs-type">{CounterState}</span></span>
+         */</span>
+        <span class="hljs-keyword">const</span> counterState = <span class="hljs-keyword">this</span>.state.counter;
+        <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Counter</span> <span class="hljs-attr">counterState</span>=<span class="hljs-string">{counterState}</span> <span class="hljs-attr">appContext</span>=<span class="hljs-string">{this.props.appContext}</span> /&gt;</span>;
+    }
+}
+App.propTypes = {
+    appContext: PropTypes.instanceOf(Context).isRequired
+};
+
+</span></code></pre>
+<h4><a class="anchor" aria-hidden="true" id="apps-state"></a><a href="#apps-state" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>App's state</h4>
+<p>Root Component has state that syncs to almin's state.</p>
+<p>Focus on <code>onChange</code>:</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// update component's state with store's state when store is changed</span>
+<span class="hljs-keyword">const</span> onChangeHandler = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">this</span>.setState(appContext.getState());
+};
+appContext.onChange(onChangeHandler);
+</code></pre>
+<p>If <code>CounterStore</code>'s state is changed(or <code>emitChange()</code>ed), call <code>onChangeHandler</code>.
+<code>onChangeHandler</code> does update <code>App</code> component's state.</p>
+<h3><a class="anchor" aria-hidden="true" id="counter-component"></a><a href="#counter-component" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Counter component</h3>
+<p>Counter component receives <code>counterState</code> and <code>appContext</code> via <code>this.props</code>.</p>
+<pre><code class="hljs css language-js">CounterComponent.propTypes = {
+    <span class="hljs-attr">appContext</span>: React.PropTypes.instanceOf(Context).isRequired,
+    <span class="hljs-attr">counterState</span>: React.PropTypes.instanceOf(CounterState).isRequired
+};
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="execute-usecase-from-view"></a><a href="#execute-usecase-from-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Execute UseCase from View</h3>
+<p>We can execute <code>IncrementalCounterUseCase</code> when Counter's Increment button is clicked.</p>
+<pre><code class="hljs css language-js">    incrementCounter() {
+        <span class="hljs-comment">// execute IncrementalCounterUseCase with new count value</span>
+        <span class="hljs-keyword">const</span> context = <span class="hljs-keyword">this</span>.props.appContext;
+        context.useCase(<span class="hljs-keyword">new</span> IncrementalCounterUseCase()).execute();
+    }
+</code></pre>
+<p>Execute <code>IncrementalCounterUseCase</code> and work following:</p>
+<ol>
+<li>Execute <code>IncrementalCounterUseCase</code></li>
+<li><code>CounterStore</code> is updated(create new <code>CounterState</code>)</li>
+<li><code>App</code> Component's state is updated via <code>onChangeHandler</code></li>
+<li><code>Counter</code> receives new <code>CounterState</code>, refresh view</li>
+</ol>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/counter/src/component/Counter.js"><code>counter/src/component/Counter.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-jsx"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">"prop-types"</span>;
+<span class="hljs-keyword">import</span> { IncrementalCounterUseCase } <span class="hljs-keyword">from</span> <span class="hljs-string">"../usecase/IncrementalCounterUseCase"</span>;
+<span class="hljs-keyword">import</span> { Context } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> { CounterState } <span class="hljs-keyword">from</span> <span class="hljs-string">"../store/CounterState"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Counter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+    incrementCounter() {
+        <span class="hljs-comment">// execute IncrementalCounterUseCase with new count value</span>
+        <span class="hljs-keyword">const</span> context = <span class="hljs-keyword">this</span>.props.appContext;
+        context.useCase(<span class="hljs-keyword">new</span> IncrementalCounterUseCase()).execute();
+    }
+
+    render() {
+        <span class="hljs-comment">// execute UseCase ----&gt; Store</span>
+        <span class="hljs-keyword">const</span> counterState = <span class="hljs-keyword">this</span>.props.counterState;
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.incrementCounter.bind(this)}</span>&gt;</span>Increment Counter<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Count: {counterState.count}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span>
+        );
+    }
+}
+
+Counter.propTypes = {
+    <span class="hljs-attr">appContext</span>: PropTypes.instanceOf(Context).isRequired,
+    <span class="hljs-attr">counterState</span>: PropTypes.instanceOf(CounterState).isRequired
+};
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="end"></a><a href="#end" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>End</h2>
+<p>We have created a simple counter app.</p>
+<p>Writing the pattern in this guide is the same of Flux pattern.</p>
+<p><img src="/docs/assets/almin-architecture-flux.png" alt="almin-flux.png"></p>
+<p>Next: We learn domain model and CQRS pattern while creating TodoMVC app.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/example-projects.html"><span class="arrow-prev">← </span><span>Example projects</span></a><a class="docs-next button" href="/docs/en/tutorial-todo-app.html"><span>Todo App tutorial</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

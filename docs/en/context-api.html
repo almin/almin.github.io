@@ -1,0 +1,346 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Context · Almin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;!-- THIS DOCUMENT IS AUTOMATICALLY GENERATED FROM src/*.ts --&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Context · Almin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/index.html"/><meta property="og:description" content="&lt;!-- THIS DOCUMENT IS AUTOMATICALLY GENERATED FROM src/*.ts --&gt;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/api.html" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/components.html">Components of Almin</a></li><li class="navListItem"><a class="navItem" href="/docs/en/principles.html">Principles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/hello-world.html">Hello World</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/example-projects.html">Example projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-counter.html">Counter Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-todo-app.html">Todo App tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/logging.html">Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/nesting-usecase.html">Nesting UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/performance-profile.html">Performance profile</a></li><li class="navListItem"><a class="navItem" href="/docs/en/strict-mode.html">Strict mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-lifecycle.html">UseCase LifeCycle</a></li><li class="navListItem"><a class="navItem" href="/docs/en/typescript.html">TypeScript</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Troubleshooting</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/warning-usecase-is-already-released.html">UseCase is already released</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Appendix</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/glossary.html">GLOSSARY</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/api.html">API Index</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/context-api.html">Context</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcher-api.html">Dispatcher</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcherpayloadmeta-api.html">DispatcherPayloadMeta</a></li><li class="navListItem"><a class="navItem" href="/docs/en/lifecycleeventhub-api.html">LifeCycleEventHub</a></li><li class="navListItem"><a class="navItem" href="/docs/en/store-api.html">Store</a></li><li class="navListItem"><a class="navItem" href="/docs/en/storegroup-api.html">StoreGroup</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-api.html">UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecasecontext-api.html">UseCaseContext</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecaseexecutor-api.html">UseCaseExecutor</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/almin/almin/edit/master/docs/_ContextAPI.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Context</h1></header><article><div><span><!-- THIS DOCUMENT IS AUTOMATICALLY GENERATED FROM src/*.ts -->
+<!-- Please edit src/*.ts and `npm run build:docs:api` -->
+<h2><a class="anchor" aria-hidden="true" id="interface"></a><a href="#interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h2>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> ContextArgs&lt;T&gt; {
+    dispatcher?: Dispatcher;
+    store: StoreLike&lt;T&gt;;
+    options?: {
+        strict?: <span class="hljs-built_in">boolean</span>;
+        performanceProfile?: <span class="hljs-built_in">boolean</span>;
+    };
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">declare</span> <span class="hljs-keyword">class</span> Context&lt;T&gt; {
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">args: ContextArgs&lt;T&gt;</span>);
+    readonly events: LifeCycleEventHub;
+    getState(): StateMap&lt;T&gt;;
+    onChange(handler: <span class="hljs-function">(<span class="hljs-params">changingStores: <span class="hljs-built_in">Array</span>&lt;StoreLike&lt;<span class="hljs-built_in">any</span>&gt;&gt;</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    useCase&lt;T <span class="hljs-keyword">extends</span> UseCase&gt;(useCase: T): UseCaseExecutor&lt;T&gt;;
+    useCase(useCase: UseCaseFunction): UseCaseExecutor&lt;FunctionalUseCase&gt;;
+    transaction(name: <span class="hljs-built_in">string</span>, transactionHandler: <span class="hljs-function">(<span class="hljs-params">transactionContext: TransactionContext</span>) =&gt;</span> <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">any</span>&gt;): <span class="hljs-built_in">Promise</span>&lt;<span class="hljs-built_in">void</span>&gt;;
+    onWillExecuteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: WillExecutedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onDispatch(handler: <span class="hljs-function">(<span class="hljs-params">payload: DispatchedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onDidExecuteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: DidExecutedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onCompleteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: CompletedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onErrorDispatch(handler: <span class="hljs-function">(<span class="hljs-params">payload: ErrorPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    release(): <span class="hljs-built_in">void</span>;
+}
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="export-interface-contextargst-"></a><a href="#export-interface-contextargst-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>export interface ContextArgs&lt;T&gt; {</code></h3>
+<p>Initialize Context with a dispatcher, a Store(Group), and options.</p>
+<h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> appContext = <span class="hljs-keyword">new</span> Context({
+    <span class="hljs-attr">dispatcher</span>: <span class="hljs-keyword">new</span> Dispatcher(),
+    <span class="hljs-attr">store</span>: AppStore.create(),
+    <span class="hljs-attr">options</span>: {
+        <span class="hljs-attr">strict</span>: <span class="hljs-literal">true</span>,
+        <span class="hljs-attr">performanceProfile</span>: process.env.NODE_ENV !== <span class="hljs-string">"production"</span>
+    }
+});
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="dispatcher-dispatcher"></a><a href="#dispatcher-dispatcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dispatcher?: Dispatcher;</code></h3>
+<p>Dispatcher instance.</p>
+<p>Notes: Almin 0.16+</p>
+<p>It it optional parameter.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="store-storeliket"></a><a href="#store-storeliket" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>store: StoreLike&lt;T&gt;;</code></h3>
+<p>StoreGroup instance</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="options-"></a><a href="#options-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>options?: {</code></h3>
+<p>Context's option is optional</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="strict-boolean"></a><a href="#strict-boolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>strict?: boolean;</code></h3>
+<p>Set <code>strict</code> to <code>true</code> to enable strict mode.</p>
+<p>Strict mode ensure consistency in almin.
+If you update your store outside of almin, show warning in strict mode.</p>
+<p>For more details, see <a href="https://almin.js.org/docs/en/strict-mode.html">https://almin.js.org/docs/en/strict-mode.html</a></p>
+<p>Default: false(<code>false</code> in production build)</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="performanceprofile-boolean"></a><a href="#performanceprofile-boolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>performanceProfile?: boolean;</code></h3>
+<p>Set <code>performanceProfile</code> to <code>true</code> to enable profiling performance.</p>
+<p>If it is <code>true</code>, Show UseCase, Store, StoreGroup, and Transaction performance tracing in the browser devtool timeline.
+Only works in development mode and in browsers that support the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance/mark">Performance.mark()</a>.</p>
+<p>For more details, see <a href="https://almin.js.org/docs/en/performance-profile.html">https://almin.js.org/docs/en/performance-profile.html</a></p>
+<p>Default: false(<code>false</code> in production build)</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="export-declare-class-contextt-"></a><a href="#export-declare-class-contextt-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>export declare class Context&lt;T&gt; {</code></h3>
+<p>Context class provide observing and communicating with <strong>Store</strong> and <strong>UseCase</strong>.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="constructorargs-contextargst"></a><a href="#constructorargs-contextargst" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>constructor(args: ContextArgs&lt;T&gt;);</code></h3>
+<p>Context should be initialized with <code>store</code> that is an instance of StoreLike implementation</p>
+<h3><a class="anchor" aria-hidden="true" id="example-1"></a><a href="#example-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>It is minimal initialization.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> context = <span class="hljs-keyword">new</span> Context({
+  <span class="hljs-attr">store</span>: <span class="hljs-keyword">new</span> MyStore()
+});
+</code></pre>
+<p>In real case, you can pass <code>StoreGroup</code> instead of <code>Store</code>.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> storeGroup = <span class="hljs-keyword">new</span> StoreGroup([
+  <span class="hljs-keyword">new</span> AStore(), <span class="hljs-keyword">new</span> BStore(), <span class="hljs-keyword">new</span> CStore()
+]);
+<span class="hljs-keyword">const</span> context = <span class="hljs-keyword">new</span> Context({
+  <span class="hljs-attr">store</span>: storeGroup
+});
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="readonly-events-lifecycleeventhub"></a><a href="#readonly-events-lifecycleeventhub" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>readonly events: LifeCycleEventHub;</code></h3>
+<p>Return almin life cycle events hub.
+You can observe life cycle events on almin.</p>
+<p>See LifeCycleEventHub</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="getstate-statemapt"></a><a href="#getstate-statemapt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>getState(): StateMap&lt;T&gt;;</code></h3>
+<p>Return state value of StoreGroup or Store.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-2"></a><a href="#example-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>If you pass <code>StoreGroup</code> to <code>store</code> of Constructor,
+<code>Context#getState()</code> return the state object that merge each stores's state.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> state = context.getState();
+<span class="hljs-built_in">console</span>.log(state);
+<span class="hljs-comment">// { aState, bState }</span>
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onchangehandler-changingstores-arraystorelikeany--void---void"></a><a href="#onchangehandler-changingstores-arraystorelikeany--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onChange(handler: (changingStores: Array&lt;StoreLike&lt;any&gt;&gt;) =&gt; void): () =&gt; void;</code></h3>
+<p>If anyone store that is passed to constructor is changed, <code>handler</code> is called.
+<code>onChange</code> arguments is an array of <code>Store</code> instances that are changed.</p>
+<p>It returns unSubscribe function.
+If you want to release handler, the returned function.</p>
+<p>It is useful for updating view in the <code>handler</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-3"></a><a href="#example-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> unSubscribe = context.onChange(<span class="hljs-function"><span class="hljs-params">changingStores</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(changingStores); <span class="hljs-comment">// Array&lt;Store&gt;</span>
+  <span class="hljs-comment">// Update view</span>
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="notes"></a><a href="#notes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notes</h2>
+<p>If you want to know the change of registered store, please use <code>context.onChange</code>.
+<code>context.onChange</code> is optimized for updating View.
+By contrast, <code>context.events.*</code> is not optimized data. it is useful for logging.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="interface-1"></a><a href="#interface-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h3>
+<pre><code class="hljs css language-typescript">useCase&lt;T <span class="hljs-keyword">extends</span> UseCase&gt;(useCase: T): UseCaseExecutor&lt;T&gt;;
+    useCase(useCase: UseCaseFunction): UseCaseExecutor&lt;FunctionalUseCase&gt;;
+</code></pre>
+<p><code>Context#useCase</code> can accept two type of UseCase.</p>
+<ul>
+<li>Instance of UseCase class</li>
+<li><strong>Functional UseCase</strong></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="example-4"></a><a href="#example-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// UseCase class pattern</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AwesomeUseCase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UseCase</span> </span>{
+   execute(...args){ }
+}
+
+context.useCase(<span class="hljs-keyword">new</span> AwesomeUseCase()).execute([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+</code></pre>
+<p>OR</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// Functional UseCase pattern</span>
+<span class="hljs-keyword">const</span> awesomeUseCase = <span class="hljs-function">(<span class="hljs-params">{dispatcher}</span>) =&gt;</span> {
+   <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">...args</span>) =&gt;</span> { }
+};
+
+context.useCase(awesomeUseCase).execute([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]);
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="transactionname-string-transactionhandler-transactioncontext-transactioncontext--promiseany-promisevoid"></a><a href="#transactionname-string-transactionhandler-transactioncontext-transactioncontext--promiseany-promisevoid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>transaction(name: string, transactionHandler: (transactionContext: TransactionContext) =&gt; Promise&lt;any&gt;): Promise&lt;void&gt;;</code></h3>
+<h2><a class="anchor" aria-hidden="true" id="transaction"></a><a href="#transaction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction</h2>
+<ul>
+<li><strong>Stability</strong>: Experimental</li>
+<li>This feature is subject to change. It may change or be removed in future versions.</li>
+</ul>
+<p>Create new Unit of Work and execute UseCase.
+You can prevent heavy updating of StoreGroup.</p>
+<p>This feature only work in strict mode.</p>
+<p>Difference with <code>Context#useCase</code>:</p>
+<ul>
+<li>Do not update StoreGroup automatically</li>
+<li>You should call <code>transactionContext.commit()</code> to update StoreGroup at any time</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="example-5"></a><a href="#example-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
+<pre><code class="hljs css language-js">context.transaction(<span class="hljs-string">"A-&gt;B-&gt;C transaction"</span>, transactionContext =&gt; {
+     <span class="hljs-keyword">return</span> transactionContext.useCase(<span class="hljs-keyword">new</span> ChangeAUseCase()).execute() <span class="hljs-comment">// no update store</span>
+         .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+             <span class="hljs-keyword">return</span> transactionContext.useCase(<span class="hljs-keyword">new</span> ChangeBUseCase()).execute(); <span class="hljs-comment">// no update store</span>
+         }).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+             <span class="hljs-keyword">return</span> transactionContext.useCase(<span class="hljs-keyword">new</span> ChangeCUseCase()).execute(); <span class="hljs-comment">// no update store</span>
+         }).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+             transactionContext.commit(); <span class="hljs-comment">// update store</span>
+             <span class="hljs-comment">// replay: ChangeAUseCase -&gt; ChangeBUseCase -&gt; ChangeCUseCase</span>
+         });
+ });
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="notes-1"></a><a href="#notes-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notes</h2>
+<h3><a class="anchor" aria-hidden="true" id="transaction-should-be-commit-or-exit"></a><a href="#transaction-should-be-commit-or-exit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction should be commit or exit</h3>
+<p>Transaction context should be called <code>commit()</code> or <code>exit()</code>.
+Because, this check logic avoid to silent failure of transaction.</p>
+<p>And, transaction context should return a promise.
+In most case, transaction context should return <code>transactionContext.useCase(useCase).execute()</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="transaction-disallow-to-do-multiple-commits"></a><a href="#transaction-disallow-to-do-multiple-commits" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction disallow to do multiple commits</h3>
+<p>A transaction can do a single <code>commit()</code>
+Not to allow to do multiple commits in a transaction.</p>
+<p>Use multiple transaction chain insteadof multiple commit in a transaction.</p>
+<p>If you want to multiple commit, please file issue with the motivation.</p>
+<h3><a class="anchor" aria-hidden="true" id="transaction-is-not-lock-system"></a><a href="#transaction-is-not-lock-system" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transaction is not lock system</h3>
+<p>The <strong>transaction</strong> does not lock updating of stores.
+The <strong>transaction</strong> method that create a new unit of work.</p>
+<p>It means that the store may be updated by other unit of work during executing <code>context.transaction</code>.
+<code>context.transaction</code> provide the way for bulk updating.</p>
+<p>A Unit of Work promise the order of events in the Unit of Work.
+But, This don't promise the order of events between Unit of Works.</p>
+<pre><code class="hljs"> -----------------  commit   -----------------
+|<span class="hljs-string"> Unit of Work A </span>|<span class="hljs-string">  ------&gt; </span>|<span class="hljs-string">                 </span>|
+ ----------------           |<span class="hljs-string">    StoreGroup   </span>|
+ -----------------  commit  |<span class="hljs-string">                 </span>|
+|<span class="hljs-string"> Unit of Work B </span>|<span class="hljs-string">  ------&gt; </span>|<span class="hljs-string">                 </span>|
+ ----------------            -----------------
+</code></pre>
+<p>Current implementation is <strong>READ COMMITTED</strong> of Transaction Isolation Levels.</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Isolation_(database_systems)">https://en.wikipedia.org/wiki/Isolation_(database_systems)</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="no-commit-transaction-get-cancelled"></a><a href="#no-commit-transaction-get-cancelled" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>No commit transaction get cancelled</h3>
+<p>You can write no <code>commit()</code> transaction.
+This transaction add commitment to the unit of work, but does not <code>commit()</code>.</p>
+<pre><code class="hljs css language-js">context.transaction(<span class="hljs-string">"No commit transaction"</span>, transactionContext =&gt; {
+     <span class="hljs-comment">// No commit - Call `transactionContext.exit()` insteadof `transactionContext.commit()`</span>
+     <span class="hljs-keyword">return</span> transactionContext.useCase(<span class="hljs-keyword">new</span> LogUseCase()).execute().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+         transactionContext.exit();
+     });
+});
+</code></pre>
+<p>As a result, This transaction does not affect to Store.
+It means that Store can't received the payload of <code>LogUseCase</code>.
+Finally, that commitment get cancelled.</p>
+<p>It is useful for logging UseCase.
+Logging UseCase does not need to update store/view.
+It only does log/send data to console/server.</p>
+<h3><a class="anchor" aria-hidden="true" id="todo-rollback-is-not-implemented"></a><a href="#todo-rollback-is-not-implemented" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TODO: rollback is not implemented</h3>
+<p>Rollback feature is generality implemented in the unit of work.
+We want to know actual use case of rollback before implementing this.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onwillexecuteeachusecasehandler-payload-willexecutedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onwillexecuteeachusecasehandler-payload-willexecutedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onWillExecuteEachUseCase(handler: (payload: WillExecutedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function to Context.
+<code>handler</code> is called when each useCases will execute.</p>
+<p><b>deprecated</b>
+Use <code>context.events.onWillExecuteEachUseCase</code> insteadof it.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="ondispatchhandler-payload-dispatchedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#ondispatchhandler-payload-dispatchedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onDispatch(handler: (payload: DispatchedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function to Context.
+<code>handler</code> is called the <code>handler</code> with user-defined payload object when the UseCase dispatch with payload.
+This <code>onDispatch</code> is not called at built-in event. It is filtered by Context.
+If you want to <em>All</em> dispatched event and use listen directly your <code>dispatcher</code> object.
+In other word, listen the dispatcher of <code>new Context({dispatcher})</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-6"></a><a href="#example-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> dispatchUseCase = <span class="hljs-function">(<span class="hljs-params">{dispatcher}</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> dispatcher.dispatch({ <span class="hljs-attr">type</span>: <span class="hljs-string">"fired-payload"</span> });
+};
+context.onDispatch(<span class="hljs-function">(<span class="hljs-params">payload, meta</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(payload); <span class="hljs-comment">// { type: "fired-payload" }</span>
+});
+
+context.useCase(dispatchUseCase).execute();
+</code></pre>
+<p><b>deprecated</b>
+Use <code>context.events.onDispatch</code> insteadof it.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="ondidexecuteeachusecasehandler-payload-didexecutedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#ondidexecuteeachusecasehandler-payload-didexecutedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onDidExecuteEachUseCase(handler: (payload: DidExecutedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p><code>handler</code> is called when each useCases are executed.</p>
+<p><b>deprecated</b>
+Use <code>context.events.onDidExecuteEachUseCase</code> insteadof it.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="oncompleteeachusecasehandler-payload-completedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#oncompleteeachusecasehandler-payload-completedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onCompleteEachUseCase(handler: (payload: CompletedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p><code>handler</code> is called when each useCases are completed.
+This <code>handler</code> is always called asynchronously.</p>
+<p><b>deprecated</b>
+Use <code>context.events.onCompleteEachUseCase</code> insteadof it.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onerrordispatchhandler-payload-errorpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onerrordispatchhandler-payload-errorpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onErrorDispatch(handler: (payload: ErrorPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p><code>handler</code> is called when some UseCase throw Error.</p>
+<p>Throwing Error is following case:</p>
+<ul>
+<li>Throw exception in a UseCase</li>
+<li>Return rejected promise in a UseCase</li>
+<li>Call <code>UseCase#throwError(error)</code></li>
+</ul>
+<p><b>deprecated</b>
+Use <code>context.events.onErrorDispatch</code> insteadof it.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="release-void"></a><a href="#release-void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>release(): void;</code></h3>
+<p>Release all events handler in Context.
+You can call this when no more call event handler</p>
+<hr>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/api.html"><span class="arrow-prev">← </span><span>API Index</span></a><a class="docs-next button" href="/docs/en/dispatcher-api.html"><span>Dispatcher</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
