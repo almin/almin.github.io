@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Principles · Almin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This document describes almin&#x27;s principles:"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Principles · Almin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/index.html"/><meta property="og:description" content="This document describes almin&#x27;s principles:"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/api.html" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Introduction</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/components.html">Components of Almin</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/principles.html">Principles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/hello-world.html">Hello World</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/example-projects.html">Example projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-counter.html">Counter Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-todo-app.html">Todo App tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/logging.html">Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/nesting-usecase.html">Nesting UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/performance-profile.html">Performance profile</a></li><li class="navListItem"><a class="navItem" href="/docs/en/strict-mode.html">Strict mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-lifecycle.html">UseCase LifeCycle</a></li><li class="navListItem"><a class="navItem" href="/docs/en/typescript.html">TypeScript</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Troubleshooting</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/warning-usecase-is-already-released.html">UseCase is already released</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Appendix</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/glossary.html">GLOSSARY</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/api.html">API Index</a></li><li class="navListItem"><a class="navItem" href="/docs/en/context-api.html">Context</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcher-api.html">Dispatcher</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcherpayloadmeta-api.html">DispatcherPayloadMeta</a></li><li class="navListItem"><a class="navItem" href="/docs/en/lifecycleeventhub-api.html">LifeCycleEventHub</a></li><li class="navListItem"><a class="navItem" href="/docs/en/store-api.html">Store</a></li><li class="navListItem"><a class="navItem" href="/docs/en/storegroup-api.html">StoreGroup</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-api.html">UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecasecontext-api.html">UseCaseContext</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecaseexecutor-api.html">UseCaseExecutor</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/almin/almin/edit/master/docs/Principles.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Principles</h1></header><article><div><span><p>This document describes almin's principles:</p>
+<h2><a class="anchor" aria-hidden="true" id="cqrs"></a><a href="#cqrs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CQRS</h2>
+<p>Command and Query Responsibility Segregation(CQRS) is a pattern.</p>
+<blockquote>
+<p>&quot;CQRS is simply the creation of two objects where there was previously only one. The separation occurs based upon whether the methods are a command or a query (the same definition that is used by Meyer in Command and Query Separation: a command is any method that mutates state and a query is any method that returns a value).&quot;
+-- <a href="http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/" title="CQRS, Task Based UIs, Event Sourcing agh! | Greg Young">CQRS, Task Based UIs, Event Sourcing agh! | Greg Young</a></p>
+</blockquote>
+<p>CQRS separates &quot;one&quot; model to &quot;two&quot; models.
+CQRS has two models that are Command(Write) model and Query(Read) model.</p>
+<p>For example, Flux's store is a &quot;one&quot; model, but it is also Write and Read model.</p>
+<h3><a class="anchor" aria-hidden="true" id="in-flux"></a><a href="#in-flux" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In Flux</h3>
+<p><a href="https://facebook.github.io/flux/" title="Flux">Flux architecture</a> defines <a href="https://facebook.github.io/flux/docs/in-depth-overview/#stores" title="Stores">Stores</a> role.</p>
+<blockquote>
+<p>Stores contain the application state and logic.
+-- <a href="https://facebook.github.io/flux/docs/in-depth-overview/#stores" title="Stores">Stores</a></p>
+</blockquote>
+<p>It means that Store is a single model, but has two task - <code>state</code> and <code>logic</code>.</p>
+<ul>
+<li>On Application Layer: Store has application state</li>
+<li>On Domain Layer: Store has business logic</li>
+</ul>
+<p><img src="/docs/assets/flux-layer.png" alt="Flux Layering"></p>
+<p><strong>Complexity</strong></p>
+<p>The Complexity: <strong>N × M</strong> (multiplication)</p>
+<p>Store is both Write stack and Read stack.</p>
+<ul>
+<li><strong>N</strong>: <strong>Store does logic and updates State(Write)</strong></li>
+<li><strong>M</strong>: <strong>Store returns State for View(Read)</strong></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="in-almincqrs"></a><a href="#in-almincqrs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In Almin/CQRS</h3>
+<p>Almin separates Store's two task to one task.
+Store has only <code>state</code> role and Almin moves <code>logic</code> to domain model.
+(Domain model has business logic)</p>
+<p><img src="/docs/assets/flux-layer-cqrs.png" alt="Flux Layering + CQRS"></p>
+<p>Additionally, Almin introduces domain model for <code>logic</code> role.</p>
+<ul>
+<li>On Application Layer: Store has application state</li>
+<li>On Domain Layer: Domain model has business logic</li>
+</ul>
+<p><img src="/docs/assets/almin-layer.png" alt="Almin Layering"></p>
+<p><strong>Complexity</strong></p>
+<p>The Complexity: <strong>N + M</strong> (addition)</p>
+<p>Domain model is write stack and Store is read stack.</p>
+<ul>
+<li><strong>N</strong>: <strong>Domain model does logic and updates State(Write)</strong></li>
+<li><strong>M</strong>: <strong>Store returns State for View(Read)</strong></li>
+</ul>
+<p>Almin aims to reduce the complexity at large application.</p>
+<!-- textlint-disable -->
+<p>Quote from <a href="https://www.amazon.com/dp/0735685355/" title="Microsoft .NET - Architecting Applications for the Enterprise (2nd Edition)">Microsoft .NET - Architecting Applications for the Enterprise (2nd Edition)</a> (<a href="https://www.amazon.co.jp/dp/B00ZQZ8JNE/">日本語</a>)</p>
+<!-- textlint-enable -->
+<p><img src="/docs/assets/domain-cqrs.png" alt="domain vs. cqrs"></p>
+<p><strong>Related</strong>:</p>
+<ul>
+<li><a href="https://martinfowler.com/bliki/CQRS.html" title="CQRS">CQRS</a></li>
+<li><a href="https://docs.microsoft.com/en-us/previous-versions/msp-n-p/jj554200(v=pandp.10)" title="CQRS Journey">CQRS Journey</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="unit-of-work"></a><a href="#unit-of-work" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Unit of work</h2>
+<p>Almin has a <a href="https://martinfowler.com/eaaCatalog/unitOfWork.html" title="Unit of Work">Unit of Work</a>.
+It is a actual internal class and Almin applies Unit of Work pattern.</p>
+<ul>
+<li>Unit of Work can stop unintended updating of <code>StoreGroup</code></li>
+<li>In other word, The user can control updating of <code>StoreGroup</code> while a series of UseCase is executing</li>
+</ul>
+<p>The following figure describes it:</p>
+<p><a href="http://www.nomnoml.com/#view/%23padding%3A%2010%0A%0A%5BUseCase%7C%0A%20%20%20%20%5BUseCase%20Executor%20A%7C%0A%20%20%20%20%20%20%20%20%5B%3Cusecase%3EChild%20UseCase%5D%0A%20%20%20%20%5D%20--%3E%20%5BUseCase%20Executor%20B%5D%0A%20%20%20%20%5BUseCase%20Executor%20B%7C%0A%20%20%20%20%20%20%20%20%5B%3Cusecase%3EUseCase%5D%0A%20%20%20%20%5D%0A%5D%0A%5BUnit%20of%20Work%7C%0A%20%20%20%20%5BCommitments%7C%0A%20%20%20%20%20%20%20%20%5BDispatched%20Payload%5D%0A%20%20%20%20%20%20%20%20%5BSystem%20Payload%5D%0A%20%20%20%20%5D%0A%5D%0A%5BStoreGroup%7C%0A%20%20%20%20%5BStore%5D%0A%20%20%20%20%5B%3Cnote%3Eif%20any%20store%20is%20change%2C%20it%20emit%20changed%5D%0A%5D%0A%5BUseCase%5D%20payload%20--%3E%20%5BLifeCycleEventHub%7C%0A%09%5BDispatcher%5D%0A%5D%0A%5BUseCase%5D%20payload%20--%3E%20%5B%3Creadonly%3EUnit%20of%20Work%5D%0A%5BUnit%20of%20Work%5D%20%3Ctransaction%20event%3E%20--%3E%20%5BLifeCycleEventHub%5D%0A%5BUnit%20of%20Work%5D%20Commitment%20--%3E%20%5BStoreGroup%5D%20%0A%5BStoreGroup%5D%20changes%20--%3E%20%5BLifeCycleEventHub%5D%0A%5BLifeCycleEventHub%5D%20%3C-%20%5BContext%5D%0A"><img src="/docs/assets/almin-unit-of-work.png" alt="unit of work"></a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/components.html"><span class="arrow-prev">← </span><span>Components of Almin</span></a><a class="docs-next button" href="/docs/en/hello-world.html"><span>Hello World</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2021 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

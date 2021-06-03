@@ -1,0 +1,680 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Todo App tutorial · Almin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="In this guide, we’ll walk through the process of creating a simple Todo app."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Todo App tutorial · Almin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/index.html"/><meta property="og:description" content="In this guide, we’ll walk through the process of creating a simple Todo app."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/api.html" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Tutorial</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/components.html">Components of Almin</a></li><li class="navListItem"><a class="navItem" href="/docs/en/principles.html">Principles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/hello-world.html">Hello World</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/example-projects.html">Example projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-counter.html">Counter Tutorial</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/tutorial-todo-app.html">Todo App tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/logging.html">Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/nesting-usecase.html">Nesting UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/performance-profile.html">Performance profile</a></li><li class="navListItem"><a class="navItem" href="/docs/en/strict-mode.html">Strict mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-lifecycle.html">UseCase LifeCycle</a></li><li class="navListItem"><a class="navItem" href="/docs/en/typescript.html">TypeScript</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Troubleshooting</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/warning-usecase-is-already-released.html">UseCase is already released</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Appendix</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/glossary.html">GLOSSARY</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/api.html">API Index</a></li><li class="navListItem"><a class="navItem" href="/docs/en/context-api.html">Context</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcher-api.html">Dispatcher</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcherpayloadmeta-api.html">DispatcherPayloadMeta</a></li><li class="navListItem"><a class="navItem" href="/docs/en/lifecycleeventhub-api.html">LifeCycleEventHub</a></li><li class="navListItem"><a class="navItem" href="/docs/en/store-api.html">Store</a></li><li class="navListItem"><a class="navItem" href="/docs/en/storegroup-api.html">StoreGroup</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-api.html">UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecasecontext-api.html">UseCaseContext</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecaseexecutor-api.html">UseCaseExecutor</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/almin/almin/edit/master/docs/TutorialTodoApp.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Todo App tutorial</h1></header><article><div><span><p>In this guide, we’ll walk through the process of creating a simple Todo app.</p>
+<p><img src="/docs/assets/todomvc.png" alt="Todo MVC"></p>
+<p>This todo app is based on <a href="http://todomvc.com/" title="TodoMVC">TodoMVC</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="source-code"></a><a href="#source-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source Code</h2>
+<p>You can get the source code for todo app from here.</p>
+<ul>
+<li><a href="https://github.com/almin/almin/tree/master/examples/todomvc">https://github.com/almin/almin/tree/master/examples/todomvc</a></li>
+</ul>
+<pre><code class="hljs css language-sh">git <span class="hljs-built_in">clone</span> https://github.com/almin/almin.git
+
+<span class="hljs-built_in">cd</span> almin/examples/todomvc
+npm install
+npm start
+<span class="hljs-comment"># manually open</span>
+open http://localhost:8080/
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="whats-learn-from-todo-app"></a><a href="#whats-learn-from-todo-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What's learn from Todo app</h2>
+<ul>
+<li>What is domain layer?
+<ul>
+<li>POJO(Plain Old JavaScript Object)</li>
+</ul></li>
+<li>What is infra layer?
+<ul>
+<li>Repository</li>
+</ul></li>
+<li>Which one should you use repository or store?
+<ul>
+<li>Where is persistent data? - repository</li>
+<li>Where is data for view? - store</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="the-purpose-of-todo-app"></a><a href="#the-purpose-of-todo-app" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The purpose of Todo app</h2>
+<p>Todo app has these UseCases.</p>
+<ul>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/AddTodoItem.js">AddTodoItem.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/FilterTodoList.js">FilterTodoList.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/RemoveAllCompletedItems.js">RemoveAllCompletedItems.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/RemoveTodoItem.js">RemoveTodoItem.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/ToggleAllTodoItems.js">ToggleAllTodoItems.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/ToggleTodoItem.js">ToggleTodoItem.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/UpdateTodoItemTitle.js">UpdateTodoItemTitle.js</a></li>
+</ul>
+<p>and system UseCase</p>
+<ul>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/CreateDomainUseCase.js">CreateDomainUseCase.js</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="story"></a><a href="#story" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Story</h2>
+<p>We'll implement the following work flow and see it.</p>
+<ol>
+<li>Add Todo item</li>
+<li>Toggle Todo item's status</li>
+<li>... Loop 1,2</li>
+<li>Filter Todo list and show only non-completed Todo items.</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="previous-knowledge"></a><a href="#previous-knowledge" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Previous knowledge</h2>
+<p>Previously, We learn flux pattern to create <a href="../examples/counter/README.md">counter app</a>.</p>
+<p><img src="/docs/assets/almin-architecture-flux.png" alt="almin-architecture-flux"></p>
+<p>In this guide, We learn basic CQRS(Command Query Responsibility Segregation) pattern using Almin.</p>
+<p>CQRS splits that conceptual model into separate models - Command(Write) model and Query(Read) model.</p>
+<p><img src="/docs/assets/almin-architecture-without-dip.png" alt="almin-architecture-without-dip"></p>
+<p>In the figure, We called</p>
+<ul>
+<li>Command(Write) model &quot;Write Stack&quot; (Left side of the figure)
+<ul>
+<li>&quot;Write Stack&quot; gets often complex.</li>
+<li>Because, it has business logic that is well-known as <strong>domain model</strong>.</li>
+</ul></li>
+<li>Query(Read) model &quot;Read Stack&quot; (Right side of the figure)
+<ul>
+<li>&quot;Read Stack&quot; is similar concept of ViewModel and Store.</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="domain-model"></a><a href="#domain-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Domain model</h3>
+<p><a href="https://en.wikipedia.org/wiki/Domain_model" title="Domain model">Domain model</a> is a object/class that has both behavior and data.
+In other word, domain model has property(data) and method(behavior).</p>
+<h2><a class="anchor" aria-hidden="true" id="lets-create-domain-model"></a><a href="#lets-create-domain-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Let's create domain model!</h2>
+<p>We want to create Todo app, then create <code>???</code> as domain model.</p>
+<p>Yes, <code>???</code> is just <code>TodoList</code>!</p>
+<pre><code class="hljs css language-js"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
+    <span class="hljs-comment">// data and behavior</span>
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="todolist"></a><a href="#todolist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TodoList</h3>
+<p><code>TodoList</code> class has business logic and manage todo item.</p>
+<p><em>Todo item</em> is also domain model.
+We are going to implement <code>TodoItem</code> as value object.</p>
+<h4><a class="anchor" aria-hidden="true" id="todoitem-is-value-object"></a><a href="#todoitem-is-value-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TodoItem is value object</h4>
+<p><code>TodoItem</code> is a simple class that has these data</p>
+<ul>
+<li><code>id</code>: identifier</li>
+<li><code>title</code>: todo title</li>
+<li><code>completed</code>: true or false</li>
+</ul>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/todomvc/src/domain/TodoList/TodoItem.js"><code>todomvc/src/domain/TodoList/TodoItem.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">const</span> uuid = <span class="hljs-built_in">require</span>(<span class="hljs-string">"uuid"</span>);
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoItem</span> </span>{
+    <span class="hljs-keyword">constructor</span>({ id, title, completed }) {
+        <span class="hljs-keyword">this</span>.id = id || uuid();
+        <span class="hljs-keyword">this</span>.title = title;
+        <span class="hljs-keyword">this</span>.completed = completed;
+    }
+
+    updateItem(updated) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> TodoItem(<span class="hljs-built_in">Object</span>.assign({}, <span class="hljs-keyword">this</span>, updated));
+    }
+}
+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="todolist-is-domain-model"></a><a href="#todolist-is-domain-model" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TodoList is domain model</h4>
+<p><code>TodoList</code> class is domain model.
+It should be plain JavaScript object,</p>
+<p>We want to implement that adding TodoItem to TodoList.</p>
+<pre><code class="hljs css language-js"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoList</span> </span>{
+    <span class="hljs-keyword">constructor</span>() {
+        <span class="hljs-comment">/**
+         * <span class="hljs-doctag">@type <span class="hljs-type">{TodoItem[]}</span></span>
+         * <span class="hljs-doctag">@private</span>
+         */</span>
+        <span class="hljs-keyword">this</span>._items = [];
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoItem}</span> <span class="hljs-variable">todoItem</span></span>
+     * <span class="hljs-doctag">@return <span class="hljs-type">{TodoItem}</span></span>
+     */</span>
+    addItem(todoItem) {
+        <span class="hljs-keyword">this</span>._items.push(todoItem);
+        <span class="hljs-keyword">return</span> todoItem;
+    }
+}
+</code></pre>
+<p>We can focus on business logic because domain model is a just plain JavaScript.</p>
+<h3><a class="anchor" aria-hidden="true" id="where-domain-model-is-stored"></a><a href="#where-domain-model-is-stored" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where domain model is stored?</h3>
+<p>Now, we can create instances of domain model like this:</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> todoList = <span class="hljs-keyword">new</span> TodoList();
+<span class="hljs-keyword">const</span> todoItem = <span class="hljs-keyword">new</span> TodoItem({ ... });
+todoList.addTodo(todoItem);
+</code></pre>
+<p>But, How to store the instance of domain(<code>TodoList</code>) as persistence.</p>
+<p>We want to introduce <strong>Repository</strong> object.
+Repository stores domain model for perpetuation.</p>
+<p>In the case, repository stores domain model into memory database.</p>
+<p>Repository is simple class that has these feature:</p>
+<ul>
+<li>Can read/write memory database - memory database is a just <code>Map</code> object</li>
+<li>Write domain instance into memory database</li>
+<li>Read domain instance from memory database</li>
+<li>When memory database is updated, emit &quot;Change&quot; event to subscriber
+<ul>
+<li>Repository is just an EventEmitter</li>
+</ul></li>
+</ul>
+<p><img src="/docs/assets/almin-architecture-repository.png" alt="almin-architecture-repository.png"></p>
+<p>We want to store <code>TodoList</code> instance to the repository.
+As a result, We have created <code>TodoListRepository</code>.</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/todomvc/src/infra/TodoListRepository.js"><code>todomvc/src/infra/TodoListRepository.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">const</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">"events"</span>);
+<span class="hljs-keyword">const</span> REPOSITORY_CHANGE = <span class="hljs-string">"REPOSITORY_CHANGE"</span>;
+<span class="hljs-keyword">import</span> TodoList <span class="hljs-keyword">from</span> <span class="hljs-string">"../domain/TodoList/TodoList"</span>;
+<span class="hljs-keyword">import</span> MemoryDB <span class="hljs-keyword">from</span> <span class="hljs-string">"./adpter/MemoryDB"</span>;
+<span class="hljs-comment">// Collection repository</span>
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoListRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmitter</span> </span>{
+    <span class="hljs-keyword">constructor</span>(database = new MemoryDB()) {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-comment">/**
+         * @type {MemoryDB}
+         */</span>
+        <span class="hljs-keyword">this</span>._database = database;
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-variable">id</span></span>
+     * <span class="hljs-doctag">@private</span>
+     */</span>
+    _get(id) {
+        <span class="hljs-comment">// Domain.&lt;id&gt;</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._database.get(<span class="hljs-string">`<span class="hljs-subst">${TodoList.name}</span>.<span class="hljs-subst">${id}</span>`</span>);
+    }
+
+    find(todoList) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._get(todoList.id);
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@returns <span class="hljs-type">{TodoList|undefined}</span></span>
+     */</span>
+    lastUsed() {
+        <span class="hljs-keyword">const</span> todoList = <span class="hljs-keyword">this</span>._database.get(<span class="hljs-string">`<span class="hljs-subst">${TodoList.name}</span>.lastUsed`</span>);
+        <span class="hljs-keyword">if</span> (todoList) {
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>._get(todoList.id);
+        }
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoList}</span> <span class="hljs-variable">todoList</span></span>
+     */</span>
+    save(todoList) {
+        <span class="hljs-keyword">this</span>._database.set(<span class="hljs-string">`<span class="hljs-subst">${TodoList.name}</span>.lastUsed`</span>, todoList);
+        <span class="hljs-keyword">this</span>._database.set(<span class="hljs-string">`<span class="hljs-subst">${TodoList.name}</span>.<span class="hljs-subst">${todoList.id}</span>`</span>, todoList);
+        <span class="hljs-keyword">this</span>.emit(REPOSITORY_CHANGE, todoList);
+    }
+
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoList}</span> <span class="hljs-variable">todoList</span></span>
+     */</span>
+    remove(todoList) {
+        <span class="hljs-keyword">this</span>._database.delete(<span class="hljs-string">`<span class="hljs-subst">${TodoList.name}</span>.<span class="hljs-subst">${todoList.id}</span>`</span>);
+        <span class="hljs-keyword">this</span>.emit(REPOSITORY_CHANGE);
+    }
+
+    onChange(handler) {
+        <span class="hljs-keyword">this</span>.on(REPOSITORY_CHANGE, handler);
+    }
+}
+<span class="hljs-comment">// singleton</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> TodoListRepository();
+
+</code></pre>
+<p>Repository should be persistence object.
+In other words, create a repository instance as singleton.</p>
+<p>Singleton? Does it may make dependency problems?</p>
+<p>Of course, We can resolve that dependency issues by DIP(<a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" title="Dependency inversion principle">Dependency inversion principle</a>).</p>
+<h3><a class="anchor" aria-hidden="true" id="dip"></a><a href="#dip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DIP</h3>
+<p><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle" title="Dependency inversion principle">Dependency inversion principle</a> is a well-known layers pattern.</p>
+<p><img src="/docs/assets/almin-architecture-dip.png" alt="DIP"></p>
+<p>Domain should not depend on repository.
+Because, Domain doesn't know how to store itself.
+But, Repository can depend on domain.</p>
+<h2><a class="anchor" aria-hidden="true" id="when-is-domain-model-created"></a><a href="#when-is-domain-model-created" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>When is domain model created?</h2>
+<p>It is just a System UseCase.</p>
+<p><code>CreateDomainUseCase</code> is</p>
+<ul>
+<li>Actor: System</li>
+<li>Purpose: initialize domain model and save this to repository</li>
+</ul>
+<p>Execute <a href="https://github.com/almin/almin/tree/master/examples/todomvc/src/usecase/CreateDomainUseCase.js">CreateDomainUseCase.js</a> and initialize <code>TodoList</code> domain and store the instance to repository.</p>
+<p>We can put this to <code>index.js</code> that is actual entry point of this application.</p>
+<pre><code class="hljs css language-jsx"><span class="hljs-comment">// create domain model and store to repository</span>
+appContext.useCase(CreateDomainUseCaseFactory.create()).execute().then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-comment">// mount app view</span>
+    ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">TodoApp</span> <span class="hljs-attr">appContext</span>=<span class="hljs-string">{appContext}/</span>&gt;</span></span>, <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"todoapp"</span>));
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="usecase-addtodoitem"></a><a href="#usecase-addtodoitem" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>UseCase: AddTodoItem</h2>
+<p>Let's implement business login to <code>TodoList</code>.</p>
+<p><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/AddTodoItem.js">AddTodoItem</a> UseCase does following steps:</p>
+<ol>
+<li>Get TodoList from repository</li>
+<li>Create new TodoItem</li>
+<li>Add New TodoItem to TodoList</li>
+<li>Save TodoList to repository</li>
+</ol>
+<p>Execution steps:</p>
+<pre><code class="hljs css language-js">    execute(title) {
+        <span class="hljs-comment">// Get todoList from repository</span>
+        <span class="hljs-keyword">const</span> todoList = <span class="hljs-keyword">this</span>.todoListRepository.lastUsed();
+        <span class="hljs-comment">// Create TodoItem</span>
+        <span class="hljs-keyword">const</span> todoItem = <span class="hljs-keyword">new</span> TodoItem({title});
+        <span class="hljs-comment">// Add TodoItem</span>
+        todoList.addItem(todoItem);
+        <span class="hljs-comment">// Save todoList to  repository</span>
+        <span class="hljs-keyword">this</span>.todoListRepository.save(todoList);
+    }
+</code></pre>
+<p>All of AddTodoItem:</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/todomvc/src/usecase/AddTodoItem.js"><code>todomvc/src/usecase/AddTodoItem.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { UseCase } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> todoListRepository, { TodoListRepository } <span class="hljs-keyword">from</span> <span class="hljs-string">"../infra/TodoListRepository"</span>;
+<span class="hljs-keyword">import</span> TodoItem <span class="hljs-keyword">from</span> <span class="hljs-string">"../domain/TodoList/TodoItem"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddTodoItemFactory</span> </span>{
+    <span class="hljs-keyword">static</span> create() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AddTodoItemUseCase({
+            todoListRepository
+        });
+    }
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AddTodoItemUseCase</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">UseCase</span> </span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoListRepository}</span> <span class="hljs-variable">todoListRepository</span></span>
+     */</span>
+    <span class="hljs-keyword">constructor</span>({ todoListRepository }) {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-keyword">this</span>.todoListRepository = todoListRepository;
+    }
+
+    execute(title) {
+        <span class="hljs-comment">// Get todoList from repository</span>
+        <span class="hljs-keyword">const</span> todoList = <span class="hljs-keyword">this</span>.todoListRepository.lastUsed();
+        <span class="hljs-comment">// Create TodoItem</span>
+        <span class="hljs-keyword">const</span> todoItem = <span class="hljs-keyword">new</span> TodoItem({ title });
+        <span class="hljs-comment">// Add TodoItem</span>
+        todoList.addItem(todoItem);
+        <span class="hljs-comment">// Save todoList to  repository</span>
+        <span class="hljs-keyword">this</span>.todoListRepository.save(todoList);
+    }
+}
+
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="factory-of-usecase"></a><a href="#factory-of-usecase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Factory of UseCase</h4>
+<p>You may notice about <code>AddTodoItemFactory</code>.</p>
+<p><code>AddTodoItemFactory</code> is not must, but it helps to write tests.
+We can write test for <code>AddTodoItem</code> UseCase.</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/todomvc/test/UseCase/AddTodoItem-test.js"><code>todomvc/test/UseCase/AddTodoItem-test.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">const</span> assert = <span class="hljs-built_in">require</span>(<span class="hljs-string">"power-assert"</span>);
+<span class="hljs-keyword">import</span> MemoryDB <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src/infra/adpter/MemoryDB"</span>;
+<span class="hljs-keyword">import</span> TodoList <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src/domain/TodoList/TodoList"</span>;
+<span class="hljs-keyword">import</span> { TodoListRepository } <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src/infra/TodoListRepository"</span>;
+<span class="hljs-keyword">import</span> { AddTodoItemUseCase } <span class="hljs-keyword">from</span> <span class="hljs-string">"../../src/usecase/AddTodoItem"</span>;
+describe(<span class="hljs-string">"AddTodoItem"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">"should add TodoItem with title"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">const</span> mockTodoList = <span class="hljs-keyword">new</span> TodoList();
+        <span class="hljs-comment">// prepare</span>
+        <span class="hljs-keyword">const</span> todoListRepository = <span class="hljs-keyword">new</span> TodoListRepository(<span class="hljs-keyword">new</span> MemoryDB());
+        todoListRepository.save(mockTodoList);
+        <span class="hljs-comment">// initialize</span>
+        <span class="hljs-keyword">const</span> useCase = <span class="hljs-keyword">new</span> AddTodoItemUseCase({
+            todoListRepository
+        });
+        <span class="hljs-keyword">const</span> titleOfAdding = <span class="hljs-string">"ADDING TODO"</span>;
+        <span class="hljs-comment">// Then</span>
+        todoListRepository.onChange(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-comment">// re-get todoList</span>
+            <span class="hljs-keyword">const</span> storedTodoList = todoListRepository.find(mockTodoList);
+            <span class="hljs-keyword">const</span> todoItem = storedTodoList.getAllTodoItems()[<span class="hljs-number">0</span>];
+            assert.equal(todoItem.title, titleOfAdding);
+        });
+        <span class="hljs-comment">// When</span>
+        useCase.execute(titleOfAdding);
+    });
+});
+
+</code></pre>
+<p>This pattern is well-known as <a href="https://en.wikipedia.org/wiki/Dependency_injection" title="Dependency injection">Dependency injection</a>(DI).</p>
+<h4><a class="anchor" aria-hidden="true" id="conclusion-of-usecase"></a><a href="#conclusion-of-usecase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion of UseCase</h4>
+<p><code>AddTodoItem</code> UseCase does adding TodoItem and saving it.</p>
+<p>Next, We want to render this result when a new TodoItem is added.</p>
+<h3><a class="anchor" aria-hidden="true" id="todostore"></a><a href="#todostore" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TodoStore</h3>
+<p>TodoStore is a almin's Store class.</p>
+<p>In <a href="../examples/counter/README.md">Counter app example</a>, you already know about <strong>Store</strong>.</p>
+<p>Almin's Store</p>
+<ul>
+<li>has <strong>State</strong> instance</li>
+<li>can receive the dispatched <em>event</em> from a UseCase.</li>
+<li>🆕 can observe repository.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="todostore-observe-repository"></a><a href="#todostore-observe-repository" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TodoStore observe repository</h3>
+<p>Repository is implemented as a singleton.
+You can observe the repository easily.</p>
+<p>But We want to implement Store that should receive repository as a constructor arguments.</p>
+<p>Why? It is a for testing.
+You already know this pattern as Dependency injection.</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoStore</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Store</span> </span>{
+    <span class="hljs-comment">// TodoListRepository instance as arguments</span>
+    <span class="hljs-comment">// It is received from `AppStoreGroup` that is explained below.</span>
+    <span class="hljs-keyword">constructor</span>({todoListRepository}) {
+        <span class="hljs-comment">// ...</span>
+    }
+}
+</code></pre>
+<p>Return to observe the repository.</p>
+<p>You can use <code>TodoListRepository#onChange</code> for observing repository.</p>
+<ol>
+<li>Observe change of repository</li>
+<li>When <code>todoListRepository</code> is changed, try to update state</li>
+</ol>
+<pre><code class="hljs css language-js"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { Store } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> TodoState, { FilterTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">"./TodoState"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoStore</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Store</span> </span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoListRepository}</span> <span class="hljs-variable">todoListRepository</span></span>
+     */</span>
+    <span class="hljs-keyword">constructor</span>({ todoListRepository }) {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-comment">// Initial State</span>
+        <span class="hljs-keyword">this</span>.state = <span class="hljs-keyword">new</span> TodoState({
+            <span class="hljs-attr">items</span>: [],
+            <span class="hljs-attr">filterType</span>: FilterTypes.ALL_TODOS
+        });
+        <span class="hljs-keyword">this</span>.todoListRepository = todoListRepository;
+        <span class="hljs-comment">// When `todoListRepository` is changed, try to update state</span>
+        <span class="hljs-keyword">this</span>.todoListRepository.onChange(<span class="hljs-function"><span class="hljs-params">todoList</span> =&gt;</span> {
+            <span class="hljs-keyword">this</span>.setState(<span class="hljs-keyword">this</span>.state.merge(todoList));
+        });
+    }
+
+    receivePayload(payload) {
+        <span class="hljs-keyword">this</span>.setState(<span class="hljs-keyword">this</span>.state.reduce(payload));
+    }
+
+    getState() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state;
+    }
+}
+</code></pre>
+<p>In other way, you can implement updating state from changes of <code>todoListRepository</code>.
+Because, <code>Store#receivePayload</code> is called in the <a href="/docs/en/usecase-lifecycle.html">Almin UseCase LifeCycle</a>.</p>
+<ul>
+<li>onDispatch</li>
+<li>onError</li>
+<li>onDidExecuteEachUseCase</li>
+<li>onCompleteEachUseCase if needed</li>
+</ul>
+<p>So, you can write following:</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/todomvc/src/store/TodoStore/TodoStore.js"><code>todomvc/src/store/TodoStore/TodoStore.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { Store } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> TodoState, { FilterTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">"./TodoState"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoStore</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Store</span> </span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoListRepository}</span> <span class="hljs-variable">todoListRepository</span></span>
+     */</span>
+    <span class="hljs-keyword">constructor</span>({ todoListRepository }) {
+        <span class="hljs-keyword">super</span>();
+        <span class="hljs-comment">// Initial State</span>
+        <span class="hljs-keyword">this</span>.state = <span class="hljs-keyword">new</span> TodoState({
+            <span class="hljs-attr">items</span>: [],
+            <span class="hljs-attr">filterType</span>: FilterTypes.ALL_TODOS
+        });
+        <span class="hljs-keyword">this</span>.todoListRepository = todoListRepository;
+    }
+
+    <span class="hljs-comment">// Update state</span>
+    receivePayload(payload) {
+        <span class="hljs-keyword">const</span> todoList = <span class="hljs-keyword">this</span>.todoListRepository.lastUsed();
+        <span class="hljs-keyword">if</span> (!todoList) {
+            <span class="hljs-keyword">return</span>;
+        }
+        <span class="hljs-keyword">const</span> newState = <span class="hljs-keyword">this</span>.state.merge(todoList).reduce(payload);
+        <span class="hljs-keyword">this</span>.setState(newState);
+    }
+
+    <span class="hljs-comment">// Read state</span>
+    getState() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.state;
+    }
+}
+
+</code></pre>
+<p>And you can see the test for <code>TodoStore.js</code></p>
+<p><a href="https://github.com/almin/almin/tree/master/examples/todomvc/test/store/TodoStore-test.js">examples/todomvc/test/store/TodoStore-test.js</a></p>
+<h4><a class="anchor" aria-hidden="true" id="-which-is-better"></a><a href="#-which-is-better" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>📝 Which is better?</h4>
+<p>Which is better place for updating state?</p>
+<ul>
+<li><code>Repository#onChange</code> vs. <code>Store#receivePayload</code></li>
+</ul>
+<p>TL;DR: Case by Case, But we recommended to do update in the <code>Store#receivePayload</code>.</p>
+<p>It is difference that <code>Repository#onChange</code> is outside of almin, <code>Store#receivePayload</code> is inside of almin.
+To update state should be done in almin life-cycle, because almin can optimize the updating process.</p>
+<p><code>Repository#onChange</code>:</p>
+<ul>
+<li>Pros:
+<ul>
+<li>The cost of reading from repository is minimal</li>
+</ul></li>
+<li>Cons:
+<ul>
+<li>To update the state out of almin life-cycle</li>
+<li>Increase listen count of observing the repository in the store</li>
+</ul></li>
+</ul>
+<p><code>Store#receivePayload</code>:</p>
+<ul>
+<li>Pros:
+<ul>
+<li>To update the state in of almin life-cycle</li>
+<li>Can put state updating code at one part</li>
+</ul></li>
+<li>Cons:
+<ul>
+<li>Store implicitly depended on almin
+<ul>
+<li>It means that testing the store is a bit complex maybe.</li>
+<li>We recommended to test State instead of Store class.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="todostate"></a><a href="#todostate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TodoState</h3>
+<p><code>TodoState</code> is a State class.</p>
+<p>There are <strong>two ways</strong> of updating store:</p>
+<ul>
+<li>Receive <code>TodoList</code> object and return new <code>TodoState</code></li>
+<li>Receive payload object and return new <code>TodoState</code>
+<ul>
+<li>See <a href="../../counter/README.md">Counter app example</a></li>
+</ul></li>
+</ul>
+<p>You can implement <code>TodoState</code> like this.</p>
+<pre><code class="hljs"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TodoState</span> </span>{
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoItem[]}</span> <span class="hljs-variable">items</span></span>
+     * <span class="hljs-doctag">@param <span class="hljs-type">{string}</span> <span class="hljs-variable">filterType</span></span>
+     */</span>
+    <span class="hljs-keyword">constructor</span>({items, filterType} = {}) {
+        <span class="hljs-keyword">this</span>.items = items;
+        <span class="hljs-keyword">this</span>.filterType = filterType;
+    }
+    
+    <span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param <span class="hljs-type">{TodoList}</span> <span class="hljs-variable">todoList</span></span>
+     * <span class="hljs-doctag">@returns <span class="hljs-type">{TodoState}</span></span>
+     */</span>
+    merge(todoList) {
+        <span class="hljs-keyword">const</span> items = todoList.getAllTodoItems();
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> TodoState(<span class="hljs-built_in">Object</span>.assign(<span class="hljs-keyword">this</span>, {
+            items
+        }));
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="storegroup"></a><a href="#storegroup" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>StoreGroup</h3>
+<p>Real application not only have a single state, but have many states.</p>
+<p>Almin has <code>StoreGroup</code> utility class that is a collection of stores.</p>
+<p><code>AppStoreGroup</code> passes <code>TodoListRepository</code> instance to <code>TodoStore</code>.</p>
+<blockquote>
+<p>Source: <a href="https://github.com/almin/almin/tree/master/examples/todomvc/src/store/AppStoreGroup.js"><code>todomvc/src/store/AppStoreGroup.js</code></a></p>
+</blockquote>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">"use strict"</span>;
+<span class="hljs-keyword">import</span> { StoreGroup } <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">import</span> TodoStore <span class="hljs-keyword">from</span> <span class="hljs-string">"./TodoStore/TodoStore"</span>;
+<span class="hljs-keyword">import</span> todoListRepository <span class="hljs-keyword">from</span> <span class="hljs-string">"../infra/TodoListRepository"</span>;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppStoreGroup</span> </span>{
+    <span class="hljs-keyword">static</span> create() {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> StoreGroup({
+            <span class="hljs-attr">todoState</span>: <span class="hljs-keyword">new</span> TodoStore({ todoListRepository })
+        });
+    }
+}
+
+</code></pre>
+<p>After that, you should initialize Almin's <code>Context</code> with <code>AppStoreGroup</code>.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// store</span>
+<span class="hljs-keyword">import</span> AppStoreGroup <span class="hljs-keyword">from</span> <span class="hljs-string">"./store/AppStoreGroup"</span>;
+<span class="hljs-keyword">import</span> {Context, Dispatcher}  <span class="hljs-keyword">from</span> <span class="hljs-string">"almin"</span>;
+<span class="hljs-keyword">const</span> dispatcher = <span class="hljs-keyword">new</span> Dispatcher();
+<span class="hljs-comment">// context connect dispatch with stores</span>
+<span class="hljs-keyword">const</span> appContext = <span class="hljs-keyword">new</span> Context({
+    dispatcher,
+    <span class="hljs-attr">store</span>: AppStoreGroup.create()
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="storegroup---view"></a><a href="#storegroup---view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>StoreGroup -&gt; View</h2>
+<p>Entry point of App's view observes <code>TodoStore</code> via Almin's <code>Context</code>.</p>
+<p>The entry point is <code>TodoApp.react.js</code>.</p>
+<ul>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/components/TodoApp.react.js">examples/todomvc/src/components/TodoApp.react.js</a></li>
+</ul>
+<p>As a result, when <code>TodoStore</code> is changed, <code>TodoApp</code> is updated.</p>
+<blockquote>
+<p>UseCase -&gt; Domain -&gt; Repository -&gt; Store -&gt; (New State) -&gt; View</p>
+</blockquote>
+<p>It is a <strong>Unidirectional data flow</strong>!</p>
+<p><img src="/docs/assets/almin-architecture-without-dip.png" alt="almin-architecture-without-dip"></p>
+<p>TodoMVC has other UseCases.</p>
+<p>You can implement these in a similar way of <code>AddTodoItem</code> or <a href="../examples/counter/README.md">counter app</a></p>
+<ul>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/FilterTodoList.js">FilterTodoList.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/RemoveAllCompletedItems.js">RemoveAllCompletedItems.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/RemoveTodoItem.js">RemoveTodoItem.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/ToggleAllTodoItems.js">ToggleAllTodoItems.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/ToggleTodoItem.js">ToggleTodoItem.js</a></li>
+<li><a href="https://github.com/almin/almin/blob/master/examples/todomvc/src/usecase/UpdateTodoItemTitle.js">UpdateTodoItemTitle.js</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="conclusion"></a><a href="#conclusion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
+<p>Almin provides two way for updating app's state.</p>
+<p><img src="/docs/assets/almin-architecture.png" alt="two way"></p>
+<ul>
+<li>Fast path
+<ul>
+<li>Dispatch events system</li>
+<li>It is well-known as Flux</li>
+</ul></li>
+<li>Long path
+<ul>
+<li>Changes of Domain and Repository</li>
+<li>It is similar with server side architecture</li>
+</ul></li>
+</ul>
+<p>Complex Web application needs to both.</p>
+<p>For example, Animation must use the fast path.
+On the other hand, complex business logic should be written in domain models.</p>
+<blockquote>
+<p>View -&gt; UseCase -&gt; (Thinking Point) -&gt; Store</p>
+</blockquote>
+<p>We can write code thinking :)</p>
+<ul>
+<li>[ ] Help to improve this document!</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/tutorial-counter.html"><span class="arrow-prev">← </span><span>Counter Tutorial</span></a><a class="docs-next button" href="/docs/en/logging.html"><span>Logging</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2021 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

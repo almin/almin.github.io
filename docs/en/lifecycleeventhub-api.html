@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>LifeCycleEventHub · Almin</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;!-- THIS DOCUMENT IS AUTOMATICALLY GENERATED FROM src/*.ts --&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="LifeCycleEventHub · Almin"/><meta property="og:type" content="website"/><meta property="og:url" content="https://almin.github.io/index.html"/><meta property="og:description" content="&lt;!-- THIS DOCUMENT IS AUTOMATICALLY GENERATED FROM src/*.ts --&gt;"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://almin.github.io/blog/atom.xml" title="Almin Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://almin.github.io/blog/feed.xml" title="Almin Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/icon-highlight.png" alt="Almin"/><h2 class="headerTitleWithLogo">Almin</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><li class="siteNavGroupActive"><a href="/docs/en/getting-started.html" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/docs/en/api.html" target="_self">API</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="https://github.com/almin/almin" target="_self">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>API</span></h2></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Introduction</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/getting-started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/docs/en/components.html">Components of Almin</a></li><li class="navListItem"><a class="navItem" href="/docs/en/principles.html">Principles</a></li><li class="navListItem"><a class="navItem" href="/docs/en/hello-world.html">Hello World</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Tutorial</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/example-projects.html">Example projects</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-counter.html">Counter Tutorial</a></li><li class="navListItem"><a class="navItem" href="/docs/en/tutorial-todo-app.html">Todo App tutorial</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Guides</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/logging.html">Logging</a></li><li class="navListItem"><a class="navItem" href="/docs/en/nesting-usecase.html">Nesting UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/performance-profile.html">Performance profile</a></li><li class="navListItem"><a class="navItem" href="/docs/en/strict-mode.html">Strict mode</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-lifecycle.html">UseCase LifeCycle</a></li><li class="navListItem"><a class="navItem" href="/docs/en/typescript.html">TypeScript</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Troubleshooting</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/warning-usecase-is-already-released.html">UseCase is already released</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Appendix</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/glossary.html">GLOSSARY</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">API</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/en/api.html">API Index</a></li><li class="navListItem"><a class="navItem" href="/docs/en/context-api.html">Context</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcher-api.html">Dispatcher</a></li><li class="navListItem"><a class="navItem" href="/docs/en/dispatcherpayloadmeta-api.html">DispatcherPayloadMeta</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/lifecycleeventhub-api.html">LifeCycleEventHub</a></li><li class="navListItem"><a class="navItem" href="/docs/en/store-api.html">Store</a></li><li class="navListItem"><a class="navItem" href="/docs/en/storegroup-api.html">StoreGroup</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecase-api.html">UseCase</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecasecontext-api.html">UseCaseContext</a></li><li class="navListItem"><a class="navItem" href="/docs/en/usecaseexecutor-api.html">UseCaseExecutor</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/almin/almin/edit/master/docs/_LifeCycleEventHubAPI.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">LifeCycleEventHub</h1></header><article><div><span><!-- THIS DOCUMENT IS AUTOMATICALLY GENERATED FROM src/*.ts -->
+<!-- Please edit src/*.ts and `npm run build:docs:api` -->
+<h2><a class="anchor" aria-hidden="true" id="interface"></a><a href="#interface" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interface</h2>
+<pre><code class="hljs css language-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">declare</span> <span class="hljs-keyword">class</span> LifeCycleEventHub {
+    onChangeStore(handler: <span class="hljs-function">(<span class="hljs-params">payload: StoreChangedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onBeginTransaction(handler: <span class="hljs-function">(<span class="hljs-params">payload: TransactionBeganPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onEndTransaction(handler: <span class="hljs-function">(<span class="hljs-params">payload: TransactionEndedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onWillNotExecuteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: WillNotExecutedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onWillExecuteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: WillExecutedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onDispatch(handler: <span class="hljs-function">(<span class="hljs-params">payload: DispatchedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onDidExecuteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: DidExecutedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onCompleteEachUseCase(handler: <span class="hljs-function">(<span class="hljs-params">payload: CompletedPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    onErrorDispatch(handler: <span class="hljs-function">(<span class="hljs-params">payload: ErrorPayload, meta: DispatcherPayloadMeta</span>) =&gt;</span> <span class="hljs-built_in">void</span>): <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">void</span>;
+    release(): <span class="hljs-built_in">void</span>;
+}
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="export-declare-class-lifecycleeventhub-"></a><a href="#export-declare-class-lifecycleeventhub-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>export declare class LifeCycleEventHub {</code></h3>
+<p>LifeCycleEventHub provide the way for observing almin life-cycle events.</p>
+<h2><a class="anchor" aria-hidden="true" id="see-also"></a><a href="#see-also" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>See also</h2>
+<ul>
+<li><a href="https://almin.js.org/docs/en/usecase-lifecycle.html">https://almin.js.org/docs/en/usecase-lifecycle.html</a></li>
+<li><a href="https://github.com/almin/almin/tree/master/packages/almin-logger">almin-logger</a></li>
+</ul>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onchangestorehandler-payload-storechangedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onchangestorehandler-payload-storechangedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onChangeStore(handler: (payload: StoreChangedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function that is called when a Store is changed.</p>
+<h2><a class="anchor" aria-hidden="true" id="notes"></a><a href="#notes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Notes</h2>
+<p>This event should not use for updating view.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// BAD</span>
+context.events.onChangeStore(<span class="hljs-function">(<span class="hljs-params">store</span>) =&gt;</span> {
+   updateView();
+})
+</code></pre>
+<p>You should use <code>context.onChange</code> for updating view.</p>
+<pre><code class="hljs"><span class="hljs-comment">// GOOD</span>
+context.onChange(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+   updateView();
+})
+</code></pre>
+<p>Because, <code>context.onChange</code> is optimized for updating view.
+By contrast, <code>context.events.onChangeStore</code> is not optimized data.
+It is useful data for logging.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onbegintransactionhandler-payload-transactionbeganpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onbegintransactionhandler-payload-transactionbeganpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onBeginTransaction(handler: (payload: TransactionBeganPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function that is called when begin <code>Context.transaction</code>.</p>
+<p>This <code>handler</code> will be not called when <code>Context.useCase</code> is executed.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onendtransactionhandler-payload-transactionendedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onendtransactionhandler-payload-transactionendedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onEndTransaction(handler: (payload: TransactionEndedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function that is called when <code>Context.transaction</code> is ended.</p>
+<p>This <code>handler</code> will be not called when <code>Context.useCase</code> is executed.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onwillnotexecuteeachusecasehandler-payload-willnotexecutedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onwillnotexecuteeachusecasehandler-payload-willnotexecutedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onWillNotExecuteEachUseCase(handler: (payload: WillNotExecutedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function to Context.
+<code>handler</code> is called when each useCases will not execute.
+In other words, <code>UseCase#shouldExecute</code> return false.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onwillexecuteeachusecasehandler-payload-willexecutedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onwillexecuteeachusecasehandler-payload-willexecutedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onWillExecuteEachUseCase(handler: (payload: WillExecutedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function to Context.
+<code>handler</code> is called when each useCases will execute.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="ondispatchhandler-payload-dispatchedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#ondispatchhandler-payload-dispatchedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onDispatch(handler: (payload: DispatchedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p>Register <code>handler</code> function to Context.
+<code>handler</code> is called the <code>handler</code> with user-defined payload object when the UseCase dispatch with payload.
+This <code>onDispatch</code> is not called at built-in event. It is filtered by Context.
+If you want to <em>All</em> dispatched event and use listen directly your <code>dispatcher</code> object.
+In other word, listen the dispatcher of <code>new Context({dispatcher})</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> dispatchUseCase = <span class="hljs-function">(<span class="hljs-params">{dispatcher}</span>) =&gt;</span> {
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> dispatcher.dispatch({ <span class="hljs-attr">type</span>: <span class="hljs-string">"fired-payload"</span> });
+};
+context.events.onDispatch(<span class="hljs-function">(<span class="hljs-params">payload, meta</span>) =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(payload); <span class="hljs-comment">// { type: "fired-payload" }</span>
+});
+
+context.useCase(dispatchUseCase).execute();
+</code></pre>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="ondidexecuteeachusecasehandler-payload-didexecutedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#ondidexecuteeachusecasehandler-payload-didexecutedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onDidExecuteEachUseCase(handler: (payload: DidExecutedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p><code>handler</code> is called when each useCases are executed.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="oncompleteeachusecasehandler-payload-completedpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#oncompleteeachusecasehandler-payload-completedpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onCompleteEachUseCase(handler: (payload: CompletedPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p><code>handler</code> is called when each useCases are completed.
+This <code>handler</code> is always called asynchronously.</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="onerrordispatchhandler-payload-errorpayload-meta-dispatcherpayloadmeta--void---void"></a><a href="#onerrordispatchhandler-payload-errorpayload-meta-dispatcherpayloadmeta--void---void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>onErrorDispatch(handler: (payload: ErrorPayload, meta: DispatcherPayloadMeta) =&gt; void): () =&gt; void;</code></h3>
+<p><code>handler</code> is called when some UseCase throw Error.</p>
+<p>Throwing Error is following case:</p>
+<ul>
+<li>Throw exception in a UseCase</li>
+<li>Return rejected promise in a UseCase</li>
+<li>Call <code>UseCase#throwError(error)</code></li>
+</ul>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="release-void"></a><a href="#release-void" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>release(): void;</code></h3>
+<p>Release all events handler.</p>
+<hr>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/dispatcherpayloadmeta-api.html"><span class="arrow-prev">← </span><span class="function-name-prevnext">DispatcherPayloadMeta</span></a><a class="docs-next button" href="/docs/en/store-api.html"><span>Store</span><span class="arrow-next"> →</span></a></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/almin.svg" alt="Almin" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/getting-started.html">Getting Started</a><a href="/docs/en/example-projects.html">Tutorial</a><a href="/docs/en/api.html">API Reference</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/almin" target="_blank">Stack Overflow</a><a href="https://twitter.com/alminjs" target="_blank">Twitter</a></div><div><h5>GitHub</h5><a href="https://github.com/almin/almin">GitHub</a><a href="https://github.com/almin/almin/releases">Releases</a><a href="https://github.com/almin/almin/issues">Issues</a><a class="github-button" href="https://github.com/almin/almin" data-icon="octicon-star" data-count-href="/almin/almin/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2021 azu</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '78de78c8711e82c99d77045672c84dcb',
+                indexName: 'almin_js',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
